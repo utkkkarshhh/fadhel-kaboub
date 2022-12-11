@@ -2,7 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 app.set("view engine", "ejs");
 
@@ -58,6 +58,6 @@ app.get('/tvAppearances', (req, res) => {
   res.render("publications/tvAppearances");
 })
 
-app.listen(process.env.PORT || port, () => {
+app.listen(port, () => {
   console.log(`App is live on localhost:${port}`)
 })
